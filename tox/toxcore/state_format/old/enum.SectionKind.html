@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SectionKind` enum in crate `tox`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SectionKind">
+
+    <title>tox::toxcore::state_format::old::SectionKind - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../../index.html'>tox</a>::<wbr><a href='../../index.html'>toxcore</a>::<wbr><a href='../index.html'>state_format</a>::<wbr><a href='index.html'>old</a></p><script>window.sidebarCurrent = {name: 'SectionKind', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../../index.html'>tox</a>::<wbr><a href='../../index.html'>toxcore</a>::<wbr><a href='../index.html'>state_format</a>::<wbr><a href='index.html'>old</a>::<wbr><a class='enum' href=''>SectionKind</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1547' class='srclink' href='../../../../src/tox/src/toxcore/state_format/old.rs.html#51-89' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum SectionKind {
+    NospamKeys,
+    DHT,
+    Friends,
+    Name,
+    StatusMsg,
+    Status,
+    TcpRelays,
+    PathNodes,
+    EOF,
+}</pre><div class='docblock'><p>Sections of the old state format.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#sections">https://zetok.github.io/tox-spec/#sections</a></p>
+
+<h2 id='serialization-into-bytes' class='section-header'><a href='#serialization-into-bytes'>Serialization into bytes</a></h2>
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>tox</span>::<span class='ident'>toxcore</span>::<span class='ident'>state_format</span>::<span class='ident'>old</span>::<span class='ident'>SectionKind</span>;
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>1u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>NospamKeys</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>2u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>DHT</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>3u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>Friends</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>4u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>Name</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>5u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>StatusMsg</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>6u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>Status</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>10u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>TcpRelays</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>11u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>PathNodes</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>255u8</span>, <span class='ident'>SectionKind</span>::<span class='ident'>EOF</span> <span class='kw'>as</span> <span class='ident'>u8</span>);</pre>
+</div><h2 class='variants'>Variants</h2>
+<table class='variants_table'><tr><td id='variant.NospamKeys'><code>NospamKeys</code></td><td><div class='docblock'><p>Section for <a href="../../toxid/struct.NoSpam.html"><code>NoSpam</code></a>, public and
+secret keys.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#nospam-and-keys-0x01">https://zetok.github.io/tox-spec/#nospam-and-keys-0x01</a></p>
+</div></td><td></td></tr><tr><td id='variant.DHT'><code>DHT</code></td><td><div class='docblock'><p>Section for DHT-related data.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#dht-0x02">https://zetok.github.io/tox-spec/#dht-0x02</a></p>
+</div></td><td></td></tr><tr><td id='variant.Friends'><code>Friends</code></td><td><div class='docblock'><p>Section for friends data.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#friends-0x03">https://zetok.github.io/tox-spec/#friends-0x03</a></p>
+</div></td><td></td></tr><tr><td id='variant.Name'><code>Name</code></td><td><div class='docblock'><p>Section for own name.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#name-0x04">https://zetok.github.io/tox-spec/#name-0x04</a></p>
+</div></td><td></td></tr><tr><td id='variant.StatusMsg'><code>StatusMsg</code></td><td><div class='docblock'><p>Section for own status message.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#status-message-0x05">https://zetok.github.io/tox-spec/#status-message-0x05</a></p>
+</div></td><td></td></tr><tr><td id='variant.Status'><code>Status</code></td><td><div class='docblock'><p>Section for own status.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#status-0x06">https://zetok.github.io/tox-spec/#status-0x06</a></p>
+</div></td><td></td></tr><tr><td id='variant.TcpRelays'><code>TcpRelays</code></td><td><div class='docblock'><p>Section for a list of TCP relays.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#tcp-relays-0x0a">https://zetok.github.io/tox-spec/#tcp-relays-0x0a</a></p>
+</div></td><td></td></tr><tr><td id='variant.PathNodes'><code>PathNodes</code></td><td><div class='docblock'><p>Section for a list of path nodes for onion routing.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#path-nodes-0x0b">https://zetok.github.io/tox-spec/#path-nodes-0x0b</a></p>
+</div></td><td></td></tr><tr><td id='variant.EOF'><code>EOF</code></td><td><div class='docblock'><p>End of file.</p>
+
+<p><a href="https://zetok.github.io/tox-spec/#eof-0xff">https://zetok.github.io/tox-spec/#eof-0xff</a></p>
+</div></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../../../../tox/toxcore/binary_io/trait.FromBytes.html' title='tox::toxcore::binary_io::FromBytes'>FromBytes</a>&lt;<a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a>&gt; for <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h3><div class='docblock'><p>E.g.</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>tox</span>::<span class='ident'>toxcore</span>::<span class='ident'>binary_io</span>::<span class='ident'>FromBytes</span>;
+<span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>tox</span>::<span class='ident'>toxcore</span>::<span class='ident'>state_format</span>::<span class='ident'>old</span>::<span class='ident'>SectionKind</span>;
+
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>NospamKeys</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>1</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap NospamKeys!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>DHT</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>2</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap DHT!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>Friends</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>3</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap Friends!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>Name</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>4</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap Name!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>StatusMsg</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>5</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap StatusMsg!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>Status</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>6</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap Status!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>TcpRelays</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>10</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap TcpRelays!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>PathNodes</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>11</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap PathNodes!&quot;</span>));
+<span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>SectionKind</span>::<span class='ident'>EOF</span>,
+        <span class='ident'>SectionKind</span>::<span class='ident'>from_bytes</span>(<span class='kw-2'>&amp;</span>[<span class='number'>255</span>]).<span class='ident'>expect</span>(<span class='string'>&quot;Failed to unwrap EOF!&quot;</span>));</pre>
+</div><div class='impl-items'><h4 id='method.from_bytes' class='method'><code>fn <a href='../../../../tox/toxcore/binary_io/trait.FromBytes.html#tymethod.from_bytes' class='fnname'>from_bytes</a>(bytes: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;Self&gt;</code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.Eq.html' title='core::cmp::Eq'>Eq</a> for <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../../tox/toxcore/state_format/old/enum.SectionKind.html' title='tox::toxcore::state_format::old::SectionKind'>SectionKind</a></code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../";
+        window.currentCrate = "tox";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../../jquery.js"></script>
+    <script src="../../../../main.js"></script>
+    
+    <script defer src="../../../../search-index.js"></script>
+</body>
+</html>
